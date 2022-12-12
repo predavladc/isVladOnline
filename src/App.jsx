@@ -10,9 +10,9 @@ function App() {
     fetch(import.meta.env.VITE_API + "api", {
       method: "POST",
     })
-      .then((res) => console.log(res.text()))
+      .then((res) => res.text())
       .then((data) => {
-        setDoc(data);
+        console.log(data);
       });
   };
 
