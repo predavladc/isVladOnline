@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 
 function App() {
   const [doc, setDoc] = useState({ isOnline: false });
+  useEffect(() => {
+    fetch(import.meta.env.VITE_API + "api")
+      .then((res) => res.json())
+      .then((data) => {
+        setDoc(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const handleForm = (e) => {
     // handle form submit
     e.preventDefault();
@@ -10,7 +21,7 @@ function App() {
     fetch(import.meta.env.VITE_API + "api", {
       method: "POST",
     })
-      .then((res) => res.text())
+      .then((res) => res.json())
       .then((data) => {
         setDoc(data);
       })
