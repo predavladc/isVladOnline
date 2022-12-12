@@ -12,7 +12,7 @@ function App() {
     })
       .then((res) => res.text())
       .then((data) => {
-        console.log(data);
+        setDoc(data);
       })
       .catch((err) => {
         console.log(err);
