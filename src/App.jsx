@@ -39,12 +39,14 @@ function App() {
         alignItems: "center",
         height: "100vh",
         fontSize: "2em",
-        background: doc.isOnline ? "lime" : "grey",
+        background: doc.vladIsOnline ? "lime" : "grey",
       }}
     >
-      Vlad is {doc.isOnline ? "online" : "offline"}
+      Vlad is {doc.vladIsOnline ? "online" : "offline"}
       <form onSubmit={handleForm} method="post">
-        <button type="submit">go {doc.isOnline ? "offline" : "online"}</button>
+        <button type="submit">
+          go {doc.vladIsOnline ? "offline" : "online"}
+        </button>
       </form>
       <p>
         Is Vlad online? is a simple app that uses a MERN stack to check if Vlad
